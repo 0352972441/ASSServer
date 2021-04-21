@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:gravity="center"
+    tools:context=".screen.ActivityInsertUser">
+
+    <androidx.cardview.widget.CardView
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:id="@+id/card_first_name"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:paddingLeft="5dp"
+            android:id="@+id/ed_first_name"
+            android:hint="First Name"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/card_first_name"
+        android:id="@+id/card_last_name"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:paddingLeft="5dp"
+            android:id="@+id/ed_last_name"
+            android:hint="Last Name"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/card_last_name"
+        android:id="@+id/card_email"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:paddingLeft="5dp"
+            android:id="@+id/ed_email"
+            android:hint="Email"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/card_email"
+        android:id="@+id/card_password"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:inputType="textPassword"
+            android:paddingLeft="5dp"
+            android:id="@+id/ed_passwrod"
+            android:hint="Password"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/card_password"
+        android:id="@+id/card_confirm_password"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:inputType="textPassword"
+            android:paddingLeft="5dp"
+            android:id="@+id/ed_confirm_password"
+            android:hint="Confirm Password"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/card_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:background="@color/purple_200"
+        android:textStyle="bold"
+        android:id="@+id/btn_add"/>
+    <ProgressBar
+        android:visibility="invisible"
+        android:background="@color/purple_200"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progrssbar"/>
+</RelativeLayout>

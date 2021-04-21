@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="15dp"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="180dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:id="@+id/mtxTtile"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:textColorHint="#979595"
+        android:layout_below="@id/mtxTtile"
+        android:paddingStart="5dp"
+        android:background="@null"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/medemail"
+        app:hintAnimationEnabled="true"
+        android:hint="email"
+        android:layout_marginTop="15dp"
+        android:layout_height="50dp"
+        android:inputType="textEmailAddress"
+        app:errorEnabled="true"
+        android:textColor="@color/white"
+        tools:ignore="RtlSymmetry">
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:textColor="@color/white"
+        android:textColorHint="#979595"
+        android:layout_below="@id/medemail"
+        android:paddingStart="5dp"
+        android:background="@null"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/medpassword"
+        android:hint="Password"
+        app:passwordToggleEnabled="true"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        app:errorEnabled="true">
+    </com.google.android.material.textfield.TextInputEditText>
+    <Button
+        android:background="@color/purple_200"
+        android:layout_below="@id/medpassword"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mbtnLg"
+        android:textColor="#ffffffff"
+        android:text="Login"/>
+    <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/mbtnLg"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="right"
+                    android:layout_marginStart="15dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/mtxquestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Do you have account ?"
+                    tools:ignore="SpUsage" />
+                <TextView
+                    android:textColor="@color/purple_200"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/mtvchange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign up"
+                    tools:ignore="SpUsage" />
+            </LinearLayout>
+        </RelativeLayout>
+</RelativeLayout>
