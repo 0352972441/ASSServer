@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.isSuccessful()){
-                            intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent = new Intent(LoginActivity.this,HomeScreen.class);
                             startActivity(intent);
                             finish();
                             snackBar.showSnackBar("Login successfully!");

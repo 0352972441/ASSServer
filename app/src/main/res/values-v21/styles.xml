@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="navigationTheme">
+        <item name="android:colorPrimary">#03A9F4</item>
+        <item name="android:colorControlHighlight">#8BC34A</item>
+    </style>
+</resources>

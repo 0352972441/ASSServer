@@ -20,7 +20,8 @@ import com.example.androidserver.widgets.SnackBar;
 
 
 public class ActivityInsertUser extends AppCompatActivity {
-    private EditText edFirstName,edLastName,edEmail,edPassword,edConfirmPassword;
+
+    private String _password;private EditText edFirstName,edLastName,edEmail,edPassword,edConfirmPassword;
     private Button btnConfirm;
     private UserValidator validate;
     private SnackBar snackbar;
@@ -32,7 +33,6 @@ public class ActivityInsertUser extends AppCompatActivity {
     public static String CONFIRMPASSWORD = "CONFIRMPASSWORD";
     public static String _ID = "_ID";
     public static String TYPE = "INSERT";
-    private String _password;
     private Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

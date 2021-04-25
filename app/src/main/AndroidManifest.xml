@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidServer"
         android:usesCleartextTraffic="true">
-        <activity android:name=".screen.ActivitySignUp"></activity>
+        <activity android:name=".screen.HomeScreen"></activity>
+        <activity android:name=".screen.ActivitySignUp" />
         <activity android:name=".screen.ActivityInsertUser" />
         <activity
             android:name=".screen.LoginActivity"
@@ -24,9 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

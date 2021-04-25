@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidserver.R;
-import com.example.androidserver.listener.UserListener;
+import com.example.androidserver.listener.Listener;
 import com.example.androidserver.models.User;
 
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public List<User> userList = new ArrayList<>();
-    private UserListener listener;
-    private UserListener updateListener;
+    private Listener listener;
+    private Listener updateListener;
     public UserAdapter(List<User> userList) {
         this.userList = userList;
     }
@@ -50,11 +50,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         }
     }
 
-    public void setListener(UserListener listener) {
+    public void setListener(Listener listener) {
         this.listener = listener;
     }
 
-    public void setUpdateListener(UserListener updateListener) {
+    public void setUpdateListener(Listener updateListener) {
         this.updateListener = updateListener;
     }
 

@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.androidserver.API.UserAPI;
 import com.example.androidserver.adapter.UserAdapter;
 import com.example.androidserver.asyncTask.DeleteUserAsyncTask;
-import com.example.androidserver.listener.UserListener;
+import com.example.androidserver.listener.Listener;
 import com.example.androidserver.models.User;
 import com.example.androidserver.screen.ActivityInsertUser;
 import com.example.androidserver.screen.LoginActivity;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private long pressedTime;
 
     //private UserRequest request;
-    public static String URL = "http://192.168.1.3:3000";
+    public static String URL = "http://192.168.1.8:3000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(){
-        adapter.setListener(new UserListener() {
+        adapter.setListener(new Listener() {
             @Override
             public void onClickListener(long position) {
                 ActivityInsertUser.TYPE = "INSERT";
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        adapter.setUpdateListener(new UserListener() {
+        adapter.setUpdateListener(new Listener() {
             @Override
             public void onClickListener(long position) {
                 ActivityInsertUser.TYPE = "UPDATE";

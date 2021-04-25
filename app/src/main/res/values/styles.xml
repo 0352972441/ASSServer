@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="navigationTheme">
+        <item name="android:colorPrimary" tools:targetApi="lollipop">#03A9F4</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">#4CAF50</item>
+    </style>
+</resources>
