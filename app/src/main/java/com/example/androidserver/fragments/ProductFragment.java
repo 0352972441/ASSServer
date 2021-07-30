@@ -12,11 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.androidserver.API.ProductAPI;
 import com.example.androidserver.MainActivity;
 import com.example.androidserver.R;
 import com.example.androidserver.adapter.ProductAdapter;
+import com.example.androidserver.listener.Listener;
 import com.example.androidserver.models.Product;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,7 +61,12 @@ public class ProductFragment extends Fragment {
                     Log.d("Size",productList.size()+"");
                     productAdapter = new ProductAdapter(productList);
                     recyclerViewProduct.setAdapter(productAdapter);
-                    //onClick();
+                    productAdapter.setListener(new Listener() {
+                        @Override
+                        public void onClickListener(long position) {
+                            Toast.makeText(getContext(), "Chuyen qua chi tiet", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }else{
                     Log.d("Error","Error");
                 }

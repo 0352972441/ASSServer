@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.androidserver.R;
 import com.example.androidserver.asyncTask.InsertUserAsyncTask;
@@ -24,6 +25,7 @@ public class ActivitySignUp extends AppCompatActivity {
     private SnackBar snackbar;
     private UserValidator validate;
     private Intent intent;
+    private long pressedTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,5 +81,18 @@ public class ActivitySignUp extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Press again exit !", Toast.LENGTH_SHORT).show();
+//            intent = new Intent(ActivitySignUp.this,LoginActivity.class);
+//            startActivity(intent);
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }

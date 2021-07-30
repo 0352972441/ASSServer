@@ -1,5 +1,8 @@
 package com.example.androidserver.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +39,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         if(productList != null){
             holder.tv_price.setText(String.valueOf(productList.get(position).getPrice()));
             holder.tv_name.setText(productList.get(position).getName());
+            //decode base64 string to image
+            byte[] imageBytes = Base64.decode(productList.get(position).getImage(), Base64.DEFAULT);
+            Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            holder.img_product.setImageBitmap(decodedImage);
             holder.img_product.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

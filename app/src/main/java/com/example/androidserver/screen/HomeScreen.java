@@ -26,6 +26,7 @@ public class HomeScreen extends AppCompatActivity {
     private FrameLayout mFrameLayout;
     private NavigationView mNavDraw;
     private static DrawerLayout mDrawerLayout;
+    private long pressedTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

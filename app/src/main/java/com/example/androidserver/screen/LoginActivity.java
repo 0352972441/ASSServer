@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 intent = new Intent(LoginActivity.this,ActivitySignUp.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -93,6 +94,8 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         } else {
             Toast.makeText(getBaseContext(), "Press again exit !", Toast.LENGTH_SHORT).show();
+            /*intent = new Intent(LoginActivity.this,ActivitySignUp.class);
+            startActivity(intent);*/
         }
         pressedTime = System.currentTimeMillis();
     }
