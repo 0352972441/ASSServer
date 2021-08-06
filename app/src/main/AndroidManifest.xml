@@ -3,6 +3,9 @@
     package="com.example.androidserver">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidServer"
         android:usesCleartextTraffic="true">
-        <activity android:name=".screen.HomeScreen"></activity>
+        <activity
+            android:name=".screen.AddProductActivity"
+            android:exported="true" />
+        <activity
+            android:name=".screen.DetailProductActivity"
+            android:exported="true" />
+        <activity android:name=".screen.HomeScreen" />
         <activity android:name=".screen.ActivitySignUp" />
         <activity android:name=".screen.ActivityInsertUser" />
         <activity
@@ -25,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

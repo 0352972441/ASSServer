@@ -19,11 +19,14 @@ public interface ProductAPI {
     public Call<List<Product>> productList();
 
     @DELETE("/products/{id}")
-    public Call<Void> productUser(@Path("id")String id);
+    public Call<Void> deleteProduct(@Path("id")String id);
 
     @POST("/product")
-    public Call<Void> productUser(@Body Product product);
+    public Call<Void> createProduct(@Body Product product);
 
     @PATCH("products/{id}")
     public Call<Void> update(@Query("id") String id, @Body Product product);
+
+    @GET("/products/{id}")
+    public Call<Product> getSingleProduct(@Path("id")String id);
 }

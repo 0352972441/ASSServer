@@ -10,4 +10,13 @@
         android:layout_height="match_parent"
         android:id="@+id/recyclerview_product_list"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/float_button"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_baseline_add_24"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

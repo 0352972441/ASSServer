@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private long pressedTime;
 
     //private UserRequest request;
-    public static String URL = "http://10.18.0.66:3000";
+    public static String URL = "http://192.168.1.8:3000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private void onClick(){
         adapter.setListener(new Listener() {
             @Override
-            public void onClickListener(long position) {
+            public void onClickListener(int position) {
                 ActivityInsertUser.TYPE = "INSERT";
                 DeleteUserAsyncTask delete = new DeleteUserAsyncTask();
                 delete.execute(adapter.getSingleUser((int)position)._id);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.setUpdateListener(new Listener() {
             @Override
-            public void onClickListener(long position) {
+            public void onClickListener(int position) {
                 ActivityInsertUser.TYPE = "UPDATE";
                 User user = adapter.getSingleUser((int)position);
                 Intent intent = new Intent(MainActivity.this, ActivityInsertUser.class);

@@ -93,7 +93,7 @@ public class UserFragment extends Fragment {
     private void onClick(){
         adapter.setListener(new Listener() {
             @Override
-            public void onClickListener(long position) {
+            public void onClickListener(int position) {
                 ActivityInsertUser.TYPE = "INSERT";
                 DeleteUserAsyncTask delete = new DeleteUserAsyncTask();
                 delete.execute(adapter.getSingleUser((int)position)._id);
@@ -103,7 +103,7 @@ public class UserFragment extends Fragment {
 
         adapter.setUpdateListener(new Listener() {
             @Override
-            public void onClickListener(long position) {
+            public void onClickListener(int position) {
                 ActivityInsertUser.TYPE = "UPDATE";
                 User user = adapter.getSingleUser((int)position);
                 Intent intent = new Intent(getContext(), ActivityInsertUser.class);
