@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.androidserver.API.ProductAPI;
+import com.example.androidserver.Account;
 import com.example.androidserver.MainActivity;
 import com.example.androidserver.R;
 import com.example.androidserver.adapter.ProductAdapter;
@@ -53,6 +54,12 @@ public class ProductFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         FloatingActionButton floatAdd = view.findViewById(R.id.float_button);
+        if(Account.getAccountInstance().getAccount().isAdmin()){
+            floatAdd.setVisibility(View.VISIBLE);
+        }else{
+            floatAdd.setVisibility(View.INVISIBLE);
+        }
+
         floatAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +69,7 @@ public class ProductFragment extends Fragment {
                 //getActivity().finish();
             }
         });
+
         recyclerViewProduct = view.findViewById(R.id.recyclerview_product_list);
         recyclerViewProduct.setLayoutManager(new GridLayoutManager(getContext(),2));
         productList = new ArrayList<>();
@@ -88,6 +96,8 @@ public class ProductFragment extends Fragment {
                             bundle.putString("name",product.getName());
                             bundle.putString("desc",product.getDesc());
                             bundle.putString("image",product.getImage());
+                            bundle.putString("id",product.get_id());
+                            bundle.putString("price",String.valueOf(product.getPrice()));
                             intent.putExtra("Bundle",bundle);
                             startActivity(intent);
                         }

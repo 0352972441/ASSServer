@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.androidserver.API.UserAPI;
+import com.example.androidserver.Account;
 import com.example.androidserver.MainActivity;
 import com.example.androidserver.models.User;
 import com.example.androidserver.widgets.SnackBar;
@@ -65,22 +66,23 @@ public class LoginActivity extends AppCompatActivity {
                 String password = edPassword.getText().toString().trim();
                 Retrofit retrofit = new Retrofit.Builder().baseUrl(MainActivity.URL).addConverterFactory(GsonConverterFactory.create()).build();
                 UserAPI userAPI = retrofit.create(UserAPI.class);
-                userAPI.login(new User(email,password)).enqueue(new Callback<Void>() {
+                userAPI.login(new User(email,password)).enqueue(new Callback<User>() {
                     @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
+                    public void onResponse(Call<User> call, Response<User> response) {
                         if(response.isSuccessful()){
+                            Account.getAccountInstance().setAccount(response.body());
                             intent = new Intent(LoginActivity.this,HomeScreen.class);
                             startActivity(intent);
                             finish();
-                            snackBar.showSnackBar("Login successfully!");
+                            snackBar.showSnackBar("Đăng nhập thành công");
                         }else{
-                            snackBar.showSnackBar("Unable login!");
+                            snackBar.showSnackBar("Đăng nhập thất bại!");
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        snackBar.showSnackBar("Unable login!");
+                    public void onFailure(Call<User> call, Throwable t) {
+                        snackBar.showSnackBar("Đăng nhập thất bại !");
                     }
                 });
             }

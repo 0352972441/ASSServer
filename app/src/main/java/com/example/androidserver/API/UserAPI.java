@@ -24,7 +24,7 @@ public interface UserAPI {
     public Call<Void> insertUser(@Body User user);
 
     @POST("/users/login")
-    public Call<Void> login(@Body User user);
+    public Call<User> login(@Body User user);
 
     @PATCH("users/{id}")
     public Call<Void> update(@Query("id") String id, @Body User user);

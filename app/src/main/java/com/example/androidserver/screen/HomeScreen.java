@@ -15,9 +15,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.androidserver.Account;
 import com.example.androidserver.R;
+import com.example.androidserver.fragments.CartFragment;
+import com.example.androidserver.fragments.OrderFragment;
 import com.example.androidserver.fragments.ProductFragment;
 import com.example.androidserver.fragments.UserFragment;
+import com.example.androidserver.widgets.SnackBar;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeScreen extends AppCompatActivity {
@@ -58,8 +62,26 @@ public class HomeScreen extends AppCompatActivity {
                         break;
                     case R.id.menu_user:
                         if(!UserFragment.isUser.equals(isCurrentFragment)){
+                            if(Account.getAccountInstance().getAccount().isAdmin()){
+                                mNavDraw.setCheckedItem(menuItem.getItemId());
+                                loadFragment(new UserFragment());
+                            }else{
+                                new SnackBar(mFrameLayout).showSnackBar("Bạn không phải là admin");
+                            }
+                        }else{
+                            new SnackBar(mFrameLayout).showSnackBar("Trang này đang mở");
+                        }
+                        break;
+                    case R.id.cart:
+                        if(!CartFragment.isProduct.equals(isCurrentFragment)){
                             mNavDraw.setCheckedItem(menuItem.getItemId());
-                            loadFragment(new UserFragment());
+                            loadFragment(new CartFragment());
+                        }
+                        break;
+                    case R.id.order:
+                        if(!OrderFragment.isProduct.equals(isCurrentFragment)){
+                            mNavDraw.setCheckedItem(menuItem.getItemId());
+                            loadFragment(new OrderFragment());
                         }
                         break;
                     case R.id.menu_logout:

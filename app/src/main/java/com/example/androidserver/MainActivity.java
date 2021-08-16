@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private long pressedTime;
 
     //private UserRequest request;
-    public static String URL = "http://192.168.1.8:3000";
+    public static String URL = "http://192.168.1.6:3000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

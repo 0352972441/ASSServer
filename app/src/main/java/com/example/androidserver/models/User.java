@@ -15,10 +15,30 @@ public class User {
     private String lastName;
     @SerializedName("confirmPassword")
     private String confirmPassword;
+    @SerializedName("isAdmin")
+    private boolean isAdmin;
 
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public User(String _id, String email, String password, String firstName, String lastName, String confirmPassword, boolean isAdmin) {
+        this._id = _id;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.confirmPassword = confirmPassword;
+        this.isAdmin = isAdmin;
     }
 
     public User(String email, String password, String firstName, String lastName, String confirmPassword) {

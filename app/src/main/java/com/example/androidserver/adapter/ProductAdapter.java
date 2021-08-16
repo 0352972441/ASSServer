@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidserver.Account;
 import com.example.androidserver.R;
 import com.example.androidserver.listener.Listener;
 import com.example.androidserver.models.Product;
@@ -53,7 +54,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if(productList != null){
-            holder.tv_price.setText(String.valueOf(productList.get(position).getPrice()));
+            holder.tv_price.setText(String.valueOf(productList.get(position).getPrice())+" đ");
             holder.tv_name.setText(productList.get(position).getName());
             Picasso.with(holder.img_product.getContext()).load(productList.get(position).getImage()).into(holder.img_product);
             holder.card_product.setOnClickListener(new View.OnClickListener() {
@@ -62,20 +63,30 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                     listener.onClickListener(position);
                 }
             });
-            holder.btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d("Index",String.valueOf(position));
-                    deleteListener.onClickListener(position);
-                }
-            });
+            if(Account.getAccountInstance().getAccount().isAdmin()){
+                holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("Index",String.valueOf(position));
+                        deleteListener.onClickListener(position);
+                    }
+                });
 
-            holder.btnEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    editListener.onClickListener(position);
-                }
-            });
+                holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        editListener.onClickListener(position);
+                    }
+                });
+
+                holder.btnEdit.setVisibility(View.VISIBLE);
+                holder.btnDelete.setVisibility(View.VISIBLE);
+            }else{
+                holder.btnEdit.setVisibility(View.INVISIBLE);
+                holder.btnDelete.setVisibility(View.INVISIBLE);
+            }
+
+
             // Đề vào card
             holder.card_product.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override

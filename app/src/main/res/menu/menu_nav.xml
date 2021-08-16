@@ -4,8 +4,14 @@
         android:title="Product"
         android:id="@+id/menu_product"/>
     <item
+        android:title="Cart"
+        android:id="@+id/cart"/>
+    <item
         android:title="User"
         android:id="@+id/menu_user"/>
+    <item
+        android:title="Order"
+        android:id="@+id/order"/>
     <group android:id="@+id/group_menu">
         <item
             android:title="Logout"
